@@ -3,10 +3,10 @@ library(readr)    #easier way to import CSV files
 
 
 # filepath for job titles
-path_titles <- "/Users/John/dataprojects/AvatarHelpDesk/stafftitles.csv"
+path_titles <- "stafftitles.csv"
 
 # filepath for tickets
-path_tickets <- "/Users/John/dataprojects/AvatarHelpDesk/RAW DATA 2018.xlsx"
+path_tickets <- "RAW DATA 2018.xlsx"
 
 
 
