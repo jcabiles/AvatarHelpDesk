@@ -7,6 +7,7 @@ library(stringr) # contains str_extract() function
 # specify every possible time format (single digit vs double digit month/date/hour)
 time.formats <- c("[0-9]{2}/[0-9]{2}/[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}",
                   "[0-9]{1}/[0-9]{2}/[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}",
+                  "[0-9]{2}/[0-9]{1}/[0-9]{4} [0-9]{1}:[0-9]{2}:[0-9]{2}",
                   "[0-9]{2}/[0-9]{1}/[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}",
                   "[0-9]{2}/[0-9]{2}/[0-9]{4} [0-9]{1}:[0-9]{2}:[0-9]{2}",
                   "[0-9]{1}/[0-9]{1}/[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}",
@@ -33,6 +34,7 @@ tickets <- tickets %>%
          CloseDate = ifelse(!is.na(CloseDate), CloseDate, str_extract(PublicNote, time.formats[7])),
          
          # convert to time datatype
+         CloseDate= mdy_hms(CloseDate),
          CloseDate = as.POSIXct(CloseDate, format="%m/%d/%Y %H:%M:%S"))
 
 
