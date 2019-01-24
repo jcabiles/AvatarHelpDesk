@@ -25,10 +25,6 @@ library(data.table)   #use rbindlist function
 all_sheets <- lapply(excel_sheets(path_tickets), read_excel, path = path_tickets, col_type = "text")
 
 
-# add column to March data frame to ensure that all data frames have 29 columns
-library(tibble)  #contains add_column() function
-all_sheets[[3]] <- add_column(all_sheets[[3]], 'Asset Number' = NA, .after = 9)
-
 
 # bind all data frames into one data frame
 raw_tickets <- rbindlist(all_sheets)
