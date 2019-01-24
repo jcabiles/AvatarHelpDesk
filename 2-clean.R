@@ -4,6 +4,14 @@ tickets <- raw_tickets
 titles <- raw_titles
 
 
+# create vector containing proper names for ticket columns
+namesofticketcolumns <- names(all_sheets[[3]])
+
+# rename columns of tickets df
+names(tickets) <- namesofticketcolumns
+
+
+
 # make syntactically valid names out of character vectors
 names(tickets) <- make.names(names(tickets), unique=TRUE)
 
@@ -48,7 +56,6 @@ tickets <- tickets %>%
 
 # easier to work with dates
  library(lubridate)
-
 
 # change to date
 titles <- titles %>%
